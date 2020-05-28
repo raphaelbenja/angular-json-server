@@ -1,0 +1,69 @@
+<h1 class="text-black-50">CREATE YOUR ACCOUNT</h1>
+
+<p>
+  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, pariatur cumque aperiam labore fugiat odio
+    id facere fugit asperiores facilis animi eius dignissimos laboriosam atque saepe repudiandae nobis molestias
+    laudantium.</span>
+  <span>Amet id quo voluptate nemo officiis ullam fuga est doloribus accusamus debitis exercitationem tenetur rem unde
+    odit accusantium sed asperiores, et quidem labore praesentium ipsam iste illo blanditiis eos? A.</span>
+  <span>Nobis possimus porro nostrum praesentium, placeat hic excepturi id quae fuga magni consectetur molestias beatae
+    eveniet magnam, aliquam alias adipisci deleniti, ut debitis enim eligendi omnis vero atque. Placeat,
+    provident.</span>
+  <span>Natus odio reiciendis tempora dolorum delectus illum aliquam sequi! Voluptatum obcaecati harum error est
+    inventore perspiciatis eos eius, autem maiores ipsum, accusantium at sit suscipit, beatae commodi atque. Cupiditate,
+    odit.</span>
+  <span>Iste minus, repudiandae molestias voluptatem soluta quasi, velit incidunt voluptate fugit saepe quisquam ex
+    beatae at vero iusto recusandae quae expedita aliquam eius commodi deserunt placeat maxime laboriosam provident.
+    Iste!</span>
+  <span>Facilis nostrum, dignissimos voluptatum similique a corrupti, nesciunt laboriosam vero, labore magni iste velit
+    illo animi necessitatibus repudiandae dolore natus. Accusamus architecto enim suscipit fugiat repellat doloremque
+    debitis autem eius.</span>
+  <span>Fugiat excepturi, atque sit vitae quo inventore necessitatibus provident quaerat ipsam eius ea quas quibusdam
+    natus aspernatur voluptatibus aut repellat cum cumque? Perspiciatis maiores ullam inventore ea sunt, veniam
+    quam?</span>
+  <span>Quas tempora blanditiis ut distinctio nostrum officia quaerat fugit dignissimos veniam sapiente eligendi
+    cupiditate, reiciendis exercitationem. Repellendus minima nobis natus, ea debitis ratione eum doloribus at sequi,
+    quibusdam iste necessitatibus.</span>
+</p>
+
+<form (ngSubmit)="onSubmitForm()" [formGroup]="signUpForm">
+  <!-- Grid row -->
+  <div class="form-row">
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input type="email" class="form-control" formControlName="email" id="inputEmail4MD" placeholder="Email">
+        <label for="inputEmail4MD"></label>
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-6">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input type="text" class="form-control" id="inputAddressMD" formControlName="username" placeholder="Username">
+        <label for="inputAddressMD"></label>
+      </div>
+    </div>
+    <!-- Grid column -->
+    <div class="col-md-6">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <input type="password" class="form-control" id="inputPassword4MD" formControlName="password"
+          placeholder="Password">
+        <label for="inputPassword4MD"></label>
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+
+  <button type="submit" class="btn btn-primary btn-md" [disabled]="signUpForm.invalid">Sign up</button>
+</form>
+<!-- Extended material form grid -->

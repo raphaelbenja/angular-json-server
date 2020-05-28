@@ -1,0 +1,44 @@
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+    <a class="navbar-brand" routerLink=""><strong>DEVSCHOOL</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/employees">Employees</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link">Profile</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item" routerLinkActive="active" *ngIf="!(isLoggedIn$ |async)">
+          <a class="nav-link" routerLink="/auth/signin"><i class="fa fa-sign-in"></i> SIGN IN</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!(isLoggedIn$ |async)">
+          <a class="nav-link" routerLink="/auth/signup"><i class="fa fa-user-circle"></i> SIGN UP</a>
+        </li>
+        <li class="nav-item" *ngIf="(isLoggedIn$ |async)" routerLinkActive="active">
+          <a class="nav-link" routerLink=""><i class="fa fa-user-circle"></i>
+            {{userAuth["_value"].username|titlecase}}</a>
+        </li>
+        <li class="nav-item" *ngIf="(isLoggedIn$ |async)">
+          <a class="nav-link" (click)="logout()"><i class="fa fa-sign-out"></i> LOGOUT</a>
+        </li>
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+          <p style="font-size: 20px; color: white">Loading...</p>
+        </ngx-spinner>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!--Main Navigation-->

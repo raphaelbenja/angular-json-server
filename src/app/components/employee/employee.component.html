@@ -1,0 +1,140 @@
+<div class="row">
+  <div class="col-12">
+    <div class="md-form input-with-post-icon">
+      <i class="fas fa-user input-prefix"></i>
+      <input type="text" [(ngModel)]="search" (keyup)="onSearchEmployee()" id="suffixInside"
+        placeholder="Search job & skills" class="form-control">
+      <label for="suffixInside"> </label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <button type="submit" class="btn btn-blue-grey btn-md" (click)="onShowForm()">New employee</button>
+  </div>
+  <p>&nbsp;</p>
+</div>
+<div class="row" *ngIf="showForm">
+  <div class="col-12">
+    <h1 class="text-black-50" *ngIf="!editForm">CREATE ANOTHER EMPLOYEE</h1>
+    <h1 class="text-black-50" *ngIf="editForm">EDIT EMPLOYEE</h1>
+    <div class="form-row">
+      <!-- Grid column -->
+      <div class="col-md-6">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input type="text" class="form-control" [(ngModel)]="newEmployee.name" id="inputEmail4MD" placeholder="Name">
+          <label for="inputEmail4MD"></label>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-6">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input type="email" class="form-control" id="inputPassword4MD" placeholder="Email"
+            [(ngModel)]="newEmployee.email">
+          <label for="inputPassword4MD"></label>
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-4">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input type="text" class="form-control" id="inputAddressMD" placeholder="Job Title"
+            [(ngModel)]="newEmployee.title">
+          <label for="inputAddressMD"></label>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input type="text" class="form-control" id="inputAddress2MD" placeholder="Skills"
+            [(ngModel)]="newEmployee.skills">
+          <label for="inputAddress2MD"></label>
+        </div>
+      </div>
+      <!-- Grid column -->
+      <div class="col-md-4">
+        <!-- Material input -->
+        <div class="md-form form-group">
+          <input type="text" class="form-control" id="inputCityMD" placeholder="Avatar URL"
+            [(ngModel)]="newEmployee.avatar">
+          <label for="inputCityMD"></label>
+        </div>
+      </div>
+    </div>
+    <!-- Grid row -->
+
+    <button type="submit" *ngIf="!editForm" (click)="onAddEmployee()" class="btn btn-primary btn-md">Add
+      employee</button>
+    <button *ngIf="editForm" type="submit" (click)="onEditEmployee(newEmployee)" class="btn btn-dark-green btn-md">Edit
+      employee</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-md-6" *ngFor="let employee of resultEmployees | paginate:config">
+
+    <h4 class="py-lg-4 pb-4 text-center"></h4>
+
+    <!--Card-->
+    <div class="card card-cascade">
+
+      <!--Card image-->
+      <div class="view view-cascade">
+        <img src="{{employee.avatar}}" class="card-img-top" alt="{{employee.name}}">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <!--/.Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+        <!--Title-->
+        <h3 class="card-title"><strong>{{employee.name |titlecase}}</strong></h3>
+        <h5>{{employee.title}}</h5>
+        <h5>{{employee.email}}</h5>
+
+        <p class="card-text">{{employee.skills}}
+        </p>
+
+        <!--Facebook-->
+        <a type="button" class="btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
+        <!--Twitter-->
+        <a type="button" class="btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
+        <!--Linkedin +-->
+        <a type="button" class="btn-sm btn-linkedin"><i class="fab fa-linkedin"></i></a>
+
+        <!--Github +-->
+        <a type="button" class="btn-sm btn-github"><i class="fab fa-github"></i></a>
+
+
+        <button class="btn btn-outline-grey btn-md">Hire me</button>
+        <button class="btn btn-md btn-outline-blue-grey" (click)="onEdit(employee)">Edit</button>
+        <button class="btn btn-md btn-outline-danger" (click)="onDeleteEmployee(employee)">Delete</button>
+
+      </div>
+      <!--/.Card content-->
+
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+</div>
+
+<h4>&nbsp;</h4>
+<ul class="pagination pg-blue justify-content-center">
+  <pagination-controls (pageChange)="onChangePage($event)"></pagination-controls>
+</ul>
